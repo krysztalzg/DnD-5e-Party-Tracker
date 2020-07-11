@@ -8,22 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		AE4BF9C924B9E70700DB27E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9C824B9E70700DB27E2 /* AppDelegate.swift */; };
-		AE4BF9CB24B9E70700DB27E2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9CA24B9E70700DB27E2 /* SceneDelegate.swift */; };
-		AE4BF9CD24B9E70700DB27E2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9CC24B9E70700DB27E2 /* ViewController.swift */; };
-		AE4BF9D024B9E70700DB27E2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4BF9CE24B9E70700DB27E2 /* Main.storyboard */; };
+		AE4BF9CD24B9E70700DB27E2 /* PartyTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9CC24B9E70700DB27E2 /* PartyTrackerViewController.swift */; };
 		AE4BF9D224B9E71000DB27E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE4BF9D124B9E71000DB27E2 /* Assets.xcassets */; };
 		AE4BF9D524B9E71000DB27E2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AE4BF9D324B9E71000DB27E2 /* LaunchScreen.storyboard */; };
+		AE4BF9E024B9E90000DB27E2 /* PartyTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9DF24B9E90000DB27E2 /* PartyTrackerViewModel.swift */; };
+		AE4BF9E224B9E90B00DB27E2 /* PertyTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9E124B9E90B00DB27E2 /* PertyTrackerView.swift */; };
+		AE4BF9E424B9E92500DB27E2 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9E324B9E92500DB27E2 /* CharacterCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AE4BF9C524B9E70700DB27E2 /* DnD5PartyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DnD5PartyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4BF9C824B9E70700DB27E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AE4BF9CA24B9E70700DB27E2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AE4BF9CC24B9E70700DB27E2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AE4BF9CF24B9E70700DB27E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AE4BF9CC24B9E70700DB27E2 /* PartyTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTrackerViewController.swift; sourceTree = "<group>"; };
 		AE4BF9D124B9E71000DB27E2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE4BF9D424B9E71000DB27E2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AE4BF9D624B9E71000DB27E2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AE4BF9DF24B9E90000DB27E2 /* PartyTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTrackerViewModel.swift; sourceTree = "<group>"; };
+		AE4BF9E124B9E90B00DB27E2 /* PertyTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PertyTrackerView.swift; sourceTree = "<group>"; };
+		AE4BF9E324B9E92500DB27E2 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,40 @@
 		AE4BF9C724B9E70700DB27E2 /* DnD5PartyTracker */ = {
 			isa = PBXGroup;
 			children = (
+				AE4BF9DC24B9E8B300DB27E2 /* Resources */,
+				AE4BF9DD24B9E8BF00DB27E2 /* Presentation */,
+			);
+			path = DnD5PartyTracker;
+			sourceTree = "<group>";
+		};
+		AE4BF9DC24B9E8B300DB27E2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				AE4BF9C824B9E70700DB27E2 /* AppDelegate.swift */,
-				AE4BF9CA24B9E70700DB27E2 /* SceneDelegate.swift */,
-				AE4BF9CC24B9E70700DB27E2 /* ViewController.swift */,
-				AE4BF9CE24B9E70700DB27E2 /* Main.storyboard */,
 				AE4BF9D124B9E71000DB27E2 /* Assets.xcassets */,
 				AE4BF9D324B9E71000DB27E2 /* LaunchScreen.storyboard */,
 				AE4BF9D624B9E71000DB27E2 /* Info.plist */,
 			);
-			path = DnD5PartyTracker;
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		AE4BF9DD24B9E8BF00DB27E2 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				AE4BF9DE24B9E8C600DB27E2 /* Party Tracker */,
+			);
+			name = Presentation;
+			sourceTree = "<group>";
+		};
+		AE4BF9DE24B9E8C600DB27E2 /* Party Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				AE4BF9DF24B9E90000DB27E2 /* PartyTrackerViewModel.swift */,
+				AE4BF9CC24B9E70700DB27E2 /* PartyTrackerViewController.swift */,
+				AE4BF9E124B9E90B00DB27E2 /* PertyTrackerView.swift */,
+				AE4BF9E324B9E92500DB27E2 /* CharacterCollectionViewCell.swift */,
+			);
+			name = "Party Tracker";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +154,6 @@
 			files = (
 				AE4BF9D524B9E71000DB27E2 /* LaunchScreen.storyboard in Resources */,
 				AE4BF9D224B9E71000DB27E2 /* Assets.xcassets in Resources */,
-				AE4BF9D024B9E70700DB27E2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +164,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE4BF9CD24B9E70700DB27E2 /* ViewController.swift in Sources */,
+				AE4BF9E424B9E92500DB27E2 /* CharacterCollectionViewCell.swift in Sources */,
+				AE4BF9E224B9E90B00DB27E2 /* PertyTrackerView.swift in Sources */,
+				AE4BF9CD24B9E70700DB27E2 /* PartyTrackerViewController.swift in Sources */,
 				AE4BF9C924B9E70700DB27E2 /* AppDelegate.swift in Sources */,
-				AE4BF9CB24B9E70700DB27E2 /* SceneDelegate.swift in Sources */,
+				AE4BF9E024B9E90000DB27E2 /* PartyTrackerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AE4BF9CE24B9E70700DB27E2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AE4BF9CF24B9E70700DB27E2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		AE4BF9D324B9E71000DB27E2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,7 +314,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.netguru.DnD5PartyTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -312,7 +332,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = co.netguru.DnD5PartyTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
