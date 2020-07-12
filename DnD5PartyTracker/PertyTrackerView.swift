@@ -9,21 +9,26 @@ internal final class PartyTrackerView: UIView {
 
     // MARK: Properties
 
+    private lazy var statusBarHeight: CGFloat = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
+
     // MARK: Hierarchy
 
-    private let characterPhoto: UIImageView = {
-        let imageView = UIImageView()
-        return imageView
+    private lazy var collectionViewLayout: UICollectionViewFlowLayout = {
+        let flowLayout = UICollectionViewFlowLayout()
+        let screenSize = UIScreen.main.bounds.size
+        flowLayout.itemSize = CGSize(width: screenSize.width / 2, height: screenSize.height / 2 - statusBarHeight)
+        flowLayout.sectionInset = .zero
+        flowLayout.minimumInteritemSpacing = 0
+        flowLayout.minimumLineSpacing = 0
+        return flowLayout
     }()
 
-    private let nameLabel: UILabel = {
-        let label = UILabel()
-        return label
-    }()
-
-    private let classLabel: UILabel = {
-        let label = UILabel()
-        return label
+    private lazy var collectionView: UICollectionView = {
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: collectionViewLayout)
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.register(CharacterCollectionViewCell.self, forCellWithReuseIdentifier: CharacterCollectionViewCell.reuseIdentifier)
+        collection.backgroundColor = .clear
+        return collection
     }()
 
     // MARK: Initializers
@@ -46,11 +51,27 @@ internal final class PartyTrackerView: UIView {
     }
 
     private func setupViewHierarchy() {
-
+        addSubview(collectionView)
     }
 
     private func setupLayoutConstraints() {
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint(equalTo: topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+        ])
+    }
 
+    // MARK: Lifecycle
+
+    /// Setups collection view delegate and data source.
+    ///
+    /// - Parameters:
+    ///     - viewController: `Party Tracker View Controller` object used as data source and delegate of collection view.
+    internal func setupCollectionView(_ viewController: PartyTrackerViewController) {
+        collectionView.dataSource = viewController
+        collectionView.delegate = viewController
     }
 
 }
