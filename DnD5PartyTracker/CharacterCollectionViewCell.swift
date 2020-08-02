@@ -9,17 +9,19 @@ internal final class CharacterCollectionViewCell: UICollectionViewCell {
 
     // MARK: Properties
 
+    /// Reuse identifier for `Character Collection View Cell`.
     static internal let reuseIdentifier: String = "CharacterCell"
 
     private let attunementsLabelText = "Attunements: "
     private let ammoLabelText = "Ammuniton: "
+
+    private var playerCharacter: PlayerCharacter?
 
     // MARK: Hierarchy
 
     private let characterPhoto: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = #imageLiteral(resourceName: "photo-placeholder")
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         return imageView
@@ -44,6 +46,11 @@ internal final class CharacterCollectionViewCell: UICollectionViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Short Rest", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
+        button.layer.cornerRadius = 4
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
         button.addTarget(self, action: #selector(doShortRest), for: .touchUpInside)
         return button
     }()
@@ -53,6 +60,11 @@ internal final class CharacterCollectionViewCell: UICollectionViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Long Rest", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
+        button.layer.cornerRadius = 4
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
         button.addTarget(self, action: #selector(doLongRest), for: .touchUpInside)
         return button
     }()
@@ -68,7 +80,6 @@ internal final class CharacterCollectionViewCell: UICollectionViewCell {
         let stepper = UIStepper()
         stepper.translatesAutoresizingMaskIntoConstraints = false
         stepper.maximumValue = 3
-        stepper.value = 0
         stepper.transform = CGAffineTransform(scaleX: 0.6, y: 0.8)
         stepper.addTarget(self, action: #selector(updateAttunementsLabel), for: .valueChanged)
         return stepper
@@ -85,7 +96,6 @@ internal final class CharacterCollectionViewCell: UICollectionViewCell {
         let stepper = UIStepper()
         stepper.translatesAutoresizingMaskIntoConstraints = false
         stepper.maximumValue = 50
-        stepper.value = 0
         stepper.transform = CGAffineTransform(scaleX: 0.75, y: 0.9)
         stepper.addTarget(self, action: #selector(updateAmmoLabel), for: .valueChanged)
         return stepper
@@ -144,8 +154,6 @@ internal final class CharacterCollectionViewCell: UICollectionViewCell {
         setupProperties()
         setupViewHierarchy()
         setupLayoutConstraints()
-
-        testUsableResourceView()
     }
 
     required init?(coder: NSCoder) {
@@ -234,32 +242,40 @@ internal final class CharacterCollectionViewCell: UICollectionViewCell {
 
     // MARK: Lifecycle
 
-    internal func setup(with character: Any) {
-
-    }
-
-    private func testUsableResourceView() {
-        spellsContainer.addArrangedSubview(UsableResourceView(resource: UsableResource(name: "LVL 1", maximumCharges: 4, restType: .long), layoutGuide: spellSlotsLayoutGuide))
-        spellsContainer.addArrangedSubview(UsableResourceView(resource: UsableResource(name: "LVL 2", maximumCharges: 4, restType: .long), layoutGuide: spellSlotsLayoutGuide))
-        spellsContainer.addArrangedSubview(UsableResourceView(resource: UsableResource(name: "LVL 3", maximumCharges: 3, restType: .long), layoutGuide: spellSlotsLayoutGuide))
-        spellsContainer.addArrangedSubview(UsableResourceView(resource: UsableResource(name: "LVL 4", maximumCharges: 2, restType: .long), layoutGuide: spellSlotsLayoutGuide))
-        spellsContainer.addArrangedSubview(UsableResourceView(resource: UsableResource(name: "LVL 5", maximumCharges: 1, restType: .long), layoutGuide: spellSlotsLayoutGuide))
+    internal func setup(with character: PlayerCharacter) {
+        playerCharacter = character
+        characterPhoto.image = character.photo
+        nameLabel.text = character.name
+        classLabel.text = character.characterClass.classString
+        attunementStepper.value = character.attunementSlots
+        attunementLabel.text = "\(attunementsLabelText)\(Int(attunementStepper.value))"
+        ammoStepper.maximumValue = character.maximumAmmunition
+        ammoStepper.value = character.currentAmmunition
+        ammoLabel.text = "\(ammoLabelText)\(Int(ammoStepper.value))"
+        character.spellSlots
+            .map { [unowned self] resource in
+                UsableResourceView(resource: resource, layoutGuide: self.spellSlotsLayoutGuide)
+            }
+            .forEach(spellsContainer.addArrangedSubview)
         spellsContainer.addArrangedSubview(UIView())
-
-        featuresContainer.addArrangedSubview(UsableResourceView(resource: UsableResource(name: "Levitate", maximumCharges: 1, restType: .short), layoutGuide: featureChargesLayoutGuide))
-        featuresContainer.addArrangedSubview(UsableResourceView(resource: UsableResource(name: "Inspiration", maximumCharges: 4, restType: .short), layoutGuide: featureChargesLayoutGuide))
-        featuresContainer.addArrangedSubview(UsableResourceView(resource: UsableResource(name: "Lay on Hands", maximumCharges: 25, restType: .long), layoutGuide: featureChargesLayoutGuide))
-        spellsContainer.addArrangedSubview(UIView())
+        character.features
+            .map { [unowned self] resource in
+                UsableResourceView(resource: resource, layoutGuide: self.featureChargesLayoutGuide)
+            }
+            .forEach(featuresContainer.addArrangedSubview)
+        featuresContainer.addArrangedSubview(UIView())
     }
 
     // MARK: Actions
 
     @objc private func updateAttunementsLabel() {
         attunementLabel.text = "\(attunementsLabelText)\(Int(attunementStepper.value))"
+        playerCharacter?.attunementSlots = attunementStepper.value
     }
 
     @objc private func updateAmmoLabel() {
         ammoLabel.text = "\(ammoLabelText)\(Int(ammoStepper.value))"
+        playerCharacter?.currentAmmunition = ammoStepper.value
     }
 
     @objc private func doShortRest() {

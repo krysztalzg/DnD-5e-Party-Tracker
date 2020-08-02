@@ -1,5 +1,5 @@
 //
-//  UsableRescource.swift
+//  UsableResource.swift
 //  DnD5PartyTracker
 //
 

@@ -14,10 +14,11 @@
 		AE4BF9E024B9E90000DB27E2 /* PartyTrackerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9DF24B9E90000DB27E2 /* PartyTrackerViewModel.swift */; };
 		AE4BF9E224B9E90B00DB27E2 /* PertyTrackerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9E124B9E90B00DB27E2 /* PertyTrackerView.swift */; };
 		AE4BF9E424B9E92500DB27E2 /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9E324B9E92500DB27E2 /* CharacterCollectionViewCell.swift */; };
-		AE4BF9E824B9F7BF00DB27E2 /* UsableRescource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9E724B9F7BF00DB27E2 /* UsableRescource.swift */; };
+		AE4BF9E824B9F7BF00DB27E2 /* UsableResource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9E724B9F7BF00DB27E2 /* UsableResource.swift */; };
 		AE4BF9EA24B9F8CE00DB27E2 /* CharacterClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9E924B9F8CE00DB27E2 /* CharacterClass.swift */; };
 		AE4BF9EC24B9FB3900DB27E2 /* ResourceCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9EB24B9FB3900DB27E2 /* ResourceCheckbox.swift */; };
 		AE4BF9EE24B9FC9700DB27E2 /* UsableResourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9ED24B9FC9700DB27E2 /* UsableResourceView.swift */; };
+		AE89C09A24D6F4F600F8C8F3 /* PlayerCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE89C09924D6F4F500F8C8F3 /* PlayerCharacter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,10 +31,11 @@
 		AE4BF9DF24B9E90000DB27E2 /* PartyTrackerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTrackerViewModel.swift; sourceTree = "<group>"; };
 		AE4BF9E124B9E90B00DB27E2 /* PertyTrackerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PertyTrackerView.swift; sourceTree = "<group>"; };
 		AE4BF9E324B9E92500DB27E2 /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
-		AE4BF9E724B9F7BF00DB27E2 /* UsableRescource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsableRescource.swift; sourceTree = "<group>"; };
+		AE4BF9E724B9F7BF00DB27E2 /* UsableResource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsableResource.swift; sourceTree = "<group>"; };
 		AE4BF9E924B9F8CE00DB27E2 /* CharacterClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterClass.swift; sourceTree = "<group>"; };
 		AE4BF9EB24B9FB3900DB27E2 /* ResourceCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceCheckbox.swift; sourceTree = "<group>"; };
 		AE4BF9ED24B9FC9700DB27E2 /* UsableResourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsableResourceView.swift; sourceTree = "<group>"; };
+		AE89C09924D6F4F500F8C8F3 /* PlayerCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCharacter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +118,9 @@
 		AE4BF9E624B9F52F00DB27E2 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AE4BF9E724B9F7BF00DB27E2 /* UsableRescource.swift */,
+				AE4BF9E724B9F7BF00DB27E2 /* UsableResource.swift */,
 				AE4BF9E924B9F8CE00DB27E2 /* CharacterClass.swift */,
+				AE89C09924D6F4F500F8C8F3 /* PlayerCharacter.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -196,8 +199,9 @@
 				AE4BF9E424B9E92500DB27E2 /* CharacterCollectionViewCell.swift in Sources */,
 				AE4BF9E224B9E90B00DB27E2 /* PertyTrackerView.swift in Sources */,
 				AE4BF9EA24B9F8CE00DB27E2 /* CharacterClass.swift in Sources */,
+				AE89C09A24D6F4F600F8C8F3 /* PlayerCharacter.swift in Sources */,
 				AE4BF9CD24B9E70700DB27E2 /* PartyTrackerViewController.swift in Sources */,
-				AE4BF9E824B9F7BF00DB27E2 /* UsableRescource.swift in Sources */,
+				AE4BF9E824B9F7BF00DB27E2 /* UsableResource.swift in Sources */,
 				AE4BF9EE24B9FC9700DB27E2 /* UsableResourceView.swift in Sources */,
 				AE4BF9C924B9E70700DB27E2 /* AppDelegate.swift in Sources */,
 				AE4BF9E024B9E90000DB27E2 /* PartyTrackerViewModel.swift in Sources */,

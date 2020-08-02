@@ -35,7 +35,7 @@ internal final class UsableResourceView: UIView {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 4
+        stackView.spacing = 2
         return stackView
     }()
 
@@ -92,7 +92,7 @@ internal final class UsableResourceView: UIView {
             let stackView = UIStackView(arrangedSubviews: checkboxViews)
             stackView.translatesAutoresizingMaskIntoConstraints = false
             stackView.axis = .horizontal
-            stackView.spacing = 4
+            stackView.spacing = 2
             if checkboxCount < checkboxesPerRow {
                 stackView.addArrangedSubview(UIView())
             }

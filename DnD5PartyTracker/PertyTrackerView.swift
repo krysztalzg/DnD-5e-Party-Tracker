@@ -11,12 +11,14 @@ internal final class PartyTrackerView: UIView {
 
     private lazy var statusBarHeight: CGFloat = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
 
+    private let bottomPanelHeight: CGFloat = 32
+
     // MARK: Hierarchy
 
     private lazy var collectionViewLayout: UICollectionViewFlowLayout = {
         let flowLayout = UICollectionViewFlowLayout()
         let screenSize = UIScreen.main.bounds.size
-        flowLayout.itemSize = CGSize(width: screenSize.width / 2, height: screenSize.height / 2 - statusBarHeight)
+        flowLayout.itemSize = CGSize(width: screenSize.width / 2, height: screenSize.height / 2 - statusBarHeight - bottomPanelHeight)
         flowLayout.sectionInset = .zero
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.minimumLineSpacing = 0
@@ -57,7 +59,7 @@ internal final class PartyTrackerView: UIView {
     private func setupLayoutConstraints() {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bottomPanelHeight),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
@@ -73,5 +75,4 @@ internal final class PartyTrackerView: UIView {
         collectionView.dataSource = viewController
         collectionView.delegate = viewController
     }
-
 }

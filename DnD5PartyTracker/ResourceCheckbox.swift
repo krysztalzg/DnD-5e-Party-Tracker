@@ -41,7 +41,7 @@ internal final class ResourceCheckbox: UIView {
     private func setupLayoutConstraints() {
         NSLayoutConstraint.activate([
             widthAnchor.constraint(equalTo: heightAnchor),
-            heightAnchor.constraint(equalToConstant: 24)
+            heightAnchor.constraint(equalToConstant: 16)
         ])
     }
 
