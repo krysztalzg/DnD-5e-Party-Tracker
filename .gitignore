@@ -1,0 +1,33 @@
+# .gitignore
+
+# MacOS boilerplate.
+
+.DS_Store
+.Trashes
+.localized
+
+# Build artifacts.
+
+.build
+DerivedData
+
+# Xcode local files.
+
+xcuserdata
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.pbxuser
+*.xccheckout
+*.xcuserstate
+*.xcscmblueprint
+*.moved-aside
+*.hmap
+*.o
+*.hmap
+*.ipa
+*.dSYM.zip
+
+# Dependency managers artifacts.
+
+Pods

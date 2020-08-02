@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3CB13C92E44C943A5A818966 /* Pods_DnD5PartyTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A82C063423F01917AE64BA83 /* Pods_DnD5PartyTracker.framework */; };
 		AE4BF9C924B9E70700DB27E2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9C824B9E70700DB27E2 /* AppDelegate.swift */; };
 		AE4BF9CD24B9E70700DB27E2 /* PartyTrackerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4BF9CC24B9E70700DB27E2 /* PartyTrackerViewController.swift */; };
 		AE4BF9D224B9E71000DB27E2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE4BF9D124B9E71000DB27E2 /* Assets.xcassets */; };
@@ -22,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2F8908C0EEEAF1827D00FAF7 /* Pods-DnD5PartyTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DnD5PartyTracker.release.xcconfig"; path = "Target Support Files/Pods-DnD5PartyTracker/Pods-DnD5PartyTracker.release.xcconfig"; sourceTree = "<group>"; };
+		A82C063423F01917AE64BA83 /* Pods_DnD5PartyTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DnD5PartyTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAE7FE226697123A81C52D10 /* Pods-DnD5PartyTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DnD5PartyTracker.debug.xcconfig"; path = "Target Support Files/Pods-DnD5PartyTracker/Pods-DnD5PartyTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		AE4BF9C524B9E70700DB27E2 /* DnD5PartyTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DnD5PartyTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4BF9C824B9E70700DB27E2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AE4BF9CC24B9E70700DB27E2 /* PartyTrackerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartyTrackerViewController.swift; sourceTree = "<group>"; };
@@ -43,17 +47,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3CB13C92E44C943A5A818966 /* Pods_DnD5PartyTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CD74C59ADEDA499CF69775B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A82C063423F01917AE64BA83 /* Pods_DnD5PartyTracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AE4BF9BC24B9E70700DB27E2 = {
 			isa = PBXGroup;
 			children = (
 				AE4BF9C724B9E70700DB27E2 /* DnD5PartyTracker */,
 				AE4BF9C624B9E70700DB27E2 /* Products */,
+				BFE6BFA6DD022AAC39ADDDD4 /* Pods */,
+				4CD74C59ADEDA499CF69775B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +140,16 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		BFE6BFA6DD022AAC39ADDDD4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AAE7FE226697123A81C52D10 /* Pods-DnD5PartyTracker.debug.xcconfig */,
+				2F8908C0EEEAF1827D00FAF7 /* Pods-DnD5PartyTracker.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +157,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE4BF9D924B9E71000DB27E2 /* Build configuration list for PBXNativeTarget "DnD5PartyTracker" */;
 			buildPhases = (
+				37D955C2A92DA506CB67B533 /* [CP] Check Pods Manifest.lock */,
 				AE4BF9C124B9E70700DB27E2 /* Sources */,
 				AE4BF9C224B9E70700DB27E2 /* Frameworks */,
 				AE4BF9C324B9E70700DB27E2 /* Resources */,
+				91AFC5FC031D598585FF333E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -189,6 +216,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		37D955C2A92DA506CB67B533 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DnD5PartyTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91AFC5FC031D598585FF333E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DnD5PartyTracker/Pods-DnD5PartyTracker-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DnD5PartyTracker/Pods-DnD5PartyTracker-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DnD5PartyTracker/Pods-DnD5PartyTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AE4BF9C124B9E70700DB27E2 /* Sources */ = {
@@ -338,6 +407,7 @@
 		};
 		AE4BF9DA24B9E71000DB27E2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAE7FE226697123A81C52D10 /* Pods-DnD5PartyTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -356,6 +426,7 @@
 		};
 		AE4BF9DB24B9E71000DB27E2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F8908C0EEEAF1827D00FAF7 /* Pods-DnD5PartyTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
