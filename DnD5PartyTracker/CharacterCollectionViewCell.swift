@@ -278,7 +278,7 @@ internal final class CharacterCollectionViewCell: UICollectionViewCell {
         playerCharacter?.currentAmmunition = ammoStepper.value
     }
 
-    @objc private func doShortRest() {
+    @objc internal func doShortRest() {
         resourcesContainer.arrangedSubviews
             .compactMap { $0 as? UIStackView }
             .flatMap { $0.arrangedSubviews }
@@ -287,7 +287,7 @@ internal final class CharacterCollectionViewCell: UICollectionViewCell {
             .forEach { $0.restoreAllCharges() }
     }
 
-    @objc private func doLongRest() {
+    @objc internal func doLongRest() {
         resourcesContainer.arrangedSubviews
             .compactMap { $0 as? UIStackView }
             .flatMap { $0.arrangedSubviews }

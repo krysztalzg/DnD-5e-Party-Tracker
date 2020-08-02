@@ -33,6 +33,40 @@ internal final class PartyTrackerView: UIView {
         return collection
     }()
 
+    private let bottomPanel: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.spacing = 4
+        return stackView
+    }()
+
+    private lazy var shortRestButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Short Rest", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(doShortRest), for: .touchUpInside)
+        return button
+    }()
+
+    private lazy var longRestButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Long Rest", for: .normal)
+        button.setTitleColor(.black, for: .normal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
+        button.layer.borderWidth = 1
+        button.layer.borderColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(doLongRest), for: .touchUpInside)
+        return button
+    }()
+
     // MARK: Initializers
 
     init() {
@@ -53,15 +87,20 @@ internal final class PartyTrackerView: UIView {
     }
 
     private func setupViewHierarchy() {
-        addSubview(collectionView)
+        [shortRestButton, longRestButton].forEach(bottomPanel.addArrangedSubview)
+        [collectionView, bottomPanel].forEach(addSubview)
     }
 
     private func setupLayoutConstraints() {
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -bottomPanelHeight),
             collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
+
+            bottomPanel.heightAnchor.constraint(equalToConstant: bottomPanelHeight),
+            bottomPanel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            bottomPanel.topAnchor.constraint(equalTo: collectionView.bottomAnchor),
+            bottomPanel.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 
@@ -74,5 +113,19 @@ internal final class PartyTrackerView: UIView {
     internal func setupCollectionView(_ viewController: PartyTrackerViewController) {
         collectionView.dataSource = viewController
         collectionView.delegate = viewController
+    }
+
+    // MARK: Actions
+
+    @objc private func doShortRest() {
+        collectionView.visibleCells
+            .compactMap { $0 as? CharacterCollectionViewCell }
+            .forEach { $0.doShortRest() }
+    }
+
+    @objc private func doLongRest() {
+        collectionView.visibleCells
+            .compactMap { $0 as? CharacterCollectionViewCell }
+            .forEach { $0.doLongRest() }
     }
 }
