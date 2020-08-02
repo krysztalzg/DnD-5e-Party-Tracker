@@ -35,7 +35,6 @@ internal final class ResourceCheckbox: UIView {
         backgroundColor = .white
         layer.borderWidth = 1
         layer.borderColor = UIColor.darkGray.cgColor
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(toggleUsage)))
     }
 
     private func setupLayoutConstraints() {
@@ -43,9 +42,5 @@ internal final class ResourceCheckbox: UIView {
             widthAnchor.constraint(equalTo: heightAnchor),
             heightAnchor.constraint(equalToConstant: 16)
         ])
-    }
-
-    @objc private func toggleUsage() {
-        isSelected.toggle()
     }
 }
